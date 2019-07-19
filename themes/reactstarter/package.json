@@ -1,0 +1,21 @@
+{
+  "name": "reactstarter",
+  "type": "silverstripe-theme",
+  "description": "Boilerplate theme for React SilverStripe projects.",
+  "version": "1.0.0",
+  "private": true,
+  "author": "David Malone",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-redux": "^7.1.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --mode production",
+    "watch": "./node_modules/.bin/webpack --watch --mode development"
+  }
+}
