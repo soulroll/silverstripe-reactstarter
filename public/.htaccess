@@ -1,5 +1,4 @@
 ### SILVERSTRIPE START ###
-
 # Deny access to templates (but allow from localhost)
 <Files *.ss>
     Order deny,allow
@@ -33,9 +32,9 @@ ErrorDocument 500 /assets/error-500.html
 
     SetEnv HTTP_MOD_REWRITE On
     RewriteEngine On
+    RewriteBase '/public'
 
-    # Enable HTTP Basic authentication workaround for PHP running in CGI mode
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
 
     # Deny access to potentially sensitive files and folders
     RewriteRule ^vendor(/|$) - [F,L,NC]
