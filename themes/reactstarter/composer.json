@@ -1,0 +1,25 @@
+{
+    "name": "soulroll/silverstripe-reactstarter-theme",
+    "description": "Theme for Reactstarter",
+    "type": "silverstripe-theme",
+    "keywords": ["silverstripe", "theme"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "David Malone",
+            "homepage": "http://www.websiteredesign.co.nz"
+        }
+    ],
+    "require": {
+        "composer/installers": "*",
+        "silverstripe/framework": ">=3.5"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.2.x-dev"
+        },
+        "expose": [
+            "dist"
+        ]
+    }
+}

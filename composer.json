@@ -1,7 +1,7 @@
 {
     "name": "soulroll/silverstripe-reactstarter",
-    "type": "silverstripe-boilerplate",
     "description": "A boilerplate for starting React SilverStripe projects faster",
+    "type": "silverstripe-boilerplate",
     "license": "MIT License",
     "prefer-stable": true,
     "require": {

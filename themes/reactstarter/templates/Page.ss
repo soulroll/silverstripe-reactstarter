@@ -11,6 +11,6 @@
     $Layout
     <% include Footer %>
     <div id="root"></div>
-    <% require javascript($resourceURL('themes/silverstripe-reactstarter/dist/js/bundle.js')) %>
+    <% require javascript($resourceURL('themes/reactstarter/dist/js/bundle.js')) %>
   </body>
 </html>
