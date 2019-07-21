@@ -1,18 +1,19 @@
 const path = require("path");
 const webpack = require("webpack");
 const devMode = process.env.NODE_ENV !== 'production';
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
 
-  entry: [
+  entry: [ // webpack entry point. Module to start building dependency graph
     './src/index.jsx',
     './src/scss/main.scss'
   ],
 
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, "./dist/js/"),
-    publicPath: '/'
+    filename: 'bundle.js', // Name of generated bundle after build
+    path: path.resolve(__dirname, "./dist/js/"), // Folder to store generated bundle
+    publicPath: '/' // public URL of the output directory when referenced in a browser
   },
 
   module: {
@@ -37,6 +38,16 @@ module.exports = {
       }
     ]
   },
+
+  plugins: [
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      server: { baseDir: ['public'] }
+    })
+  ],
 
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.css', '.scss', '.jpg'],
