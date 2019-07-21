@@ -5,7 +5,8 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
 
   entry: [
-    './src/js/index.jsx'
+    './src/js/index.jsx',
+    './src/scss/main.scss'
   ],
 
   output: {
@@ -20,8 +21,19 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
