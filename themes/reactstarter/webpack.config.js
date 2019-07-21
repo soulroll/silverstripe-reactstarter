@@ -5,7 +5,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
 
   entry: [
-    './src/js/index.jsx',
+    './src/index.jsx',
     './src/scss/main.scss'
   ],
 
