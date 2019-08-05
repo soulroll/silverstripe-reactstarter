@@ -4,7 +4,7 @@ import './header.scss';
 
 const Header = () => (
   <header className="mb-5">
-    <p>Header goes here</p>
+    <p>Header goes here lol</p>
   </header>
 );
 
