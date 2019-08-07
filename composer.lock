@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc24185510b67b054d1d4a5b5ae63736",
+    "content-hash": "750be08692b1c620b8c6869aa35a4029",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2689,6 +2689,60 @@
             "time": "2019-03-25T07:48:46+00:00"
         },
         {
+            "name": "undefinedoffset/sortablegridfield",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UndefinedOffset/SortableGridField.git",
+                "reference": "af492d02675f1222197f6d1dd1d32122fb4cc1cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/af492d02675f1222197f6d1dd1d32122fb4cc1cb",
+                "reference": "af492d02675f1222197f6d1dd1d32122fb4cc1cb",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "sortablegridfield",
+                "expose": [
+                    "css",
+                    "javascript"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "UndefinedOffset\\SortableGridField\\": "src/",
+                    "UndefinedOffset\\SortableGridField\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ed Chipman",
+                    "homepage": "http://www.edchipman.ca",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds drag and drop functionality to SilverStripe 4.x's GridField",
+            "keywords": [
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2019-01-08T16:23:14+00:00"
+        },
+        {
             "name": "webonyx/graphql-php",
             "version": "v0.12.6",
             "source": {
@@ -3991,7 +4045,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Tools to help developers building new applications on SilverStripe’s GraphQL API",
-            "time": "2019-03-26T00:33:45+00:00"
+            "time": "2019-03-26 00:33:45"
         },
         {
             "name": "webmozart/assert",
