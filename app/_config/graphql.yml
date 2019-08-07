@@ -1,0 +1,9 @@
+SilverStripe\Control\Director:
+  rules:
+    'graphql': '%$SilverStripe\GraphQL\Controller.default'
+SilverStripe\GraphQL\Manager:
+  schemas:
+    default:
+      scaffolding_providers:
+        - Reactstarter\Reactstarter\Model\Team
+        - Reactstarter\Reactstarter\Model\Player

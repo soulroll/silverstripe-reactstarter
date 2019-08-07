@@ -2,6 +2,8 @@
 namespace Reactstarter\Reactstarter\Model;
 
 use SilverStripe\ORM\DataObject;
+use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
+use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TabSet;
@@ -12,7 +14,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use Reactstarter\Reactstarter\Model\Player;
 
-class Team extends DataObject
+class Team extends DataObject implements ScaffoldingProvider
 {
 	/**
 	 * @var string
@@ -97,6 +99,29 @@ class Team extends DataObject
 	public function getThumbnail()
 	{
 		return $this->TeamLogo()->ScaleHeight(50);
+	}
+
+	/**
+	 * @param SchemaScaffolder $scaffolder Scaffolder
+	 * @return SchemaScaffolder
+	 */
+	public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder)
+	{
+		// Provide entity type
+		$typeScaffolder = $scaffolder
+			->type(Team::class)
+			->addFields([
+				'ID',
+				'Name',
+				'Location'
+			]);
+		// Provide operations
+		$typeScaffolder
+			->operation(SchemaScaffolder::READ_ONE)
+			->setName('readTeam')
+			->end();
+
+		return $scaffolder;
 	}
 
 }
