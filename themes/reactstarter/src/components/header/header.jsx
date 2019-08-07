@@ -4,7 +4,12 @@ import './header.scss';
 
 const Header = () => (
   <header className="mb-5">
-    <p>Header goes here lol</p>
+    <div className="container">
+      <a href="/">
+        <img src="" className="logo"/>
+      </a>
+      <p>Header goes here lol</p>
+    </div>
   </header>
 );
 

@@ -117,11 +117,16 @@ class Team extends DataObject implements ScaffoldingProvider
 			]);
 		// Provide operations
 		$typeScaffolder
-			->operation(SchemaScaffolder::READ_ONE)
+			->operation(SchemaScaffolder::READ)
 			->setName('readTeam')
 			->end();
 
 		return $scaffolder;
+	}
+
+	public function canView($member = '')
+	{
+		return true;
 	}
 
 }

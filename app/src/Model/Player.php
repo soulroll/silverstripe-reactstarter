@@ -99,4 +99,9 @@ class Player extends DataObject implements ScaffoldingProvider
 		return $scaffolder;
 	}
 
+	public function canView($member = '')
+	{
+		return true;
+	}
+
 }
