@@ -8,6 +8,7 @@ class Contact extends Component {
         <div className="col">
           <div className="Contact">
             <h1>Contact</h1>
+            <p>Contact page stuff goes here</p>
           </div>
         </div>
       </div>

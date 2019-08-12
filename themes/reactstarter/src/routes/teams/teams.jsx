@@ -7,6 +7,7 @@ class Teams extends Component {
         <div className="col">
           <div className="Teams">
             <h1>Teams</h1>
+            <p>Team page stuff goes here</p>
           </div>
         </div>
       </div>

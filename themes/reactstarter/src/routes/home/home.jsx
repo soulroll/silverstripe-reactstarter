@@ -7,6 +7,7 @@ class Home extends Component {
         <div className="col">
           <div className="Home">
             <h1>Home</h1>
+            <p>Home page stuff goes here</p>
           </div>
         </div>
       </div>
