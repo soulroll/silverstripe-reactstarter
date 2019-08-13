@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   </head>
   <body>
-    <%-- include Header --%>
     $Layout
-    <%-- include Footer --%>
     <div id="root"></div>
-    <% require javascript($resourceURL('themes/reactstarter/dist/js/bundle.js')) %>
+    <% require javascript($resourceURL('themes/reactstarter/build/js/bundle.js')) %>
   </body>
 </html>

@@ -14,7 +14,7 @@ module.exports = {
   ],
 
   output: {
-    path: path.resolve(__dirname, "./dist/js/"), // Folder to store generated bundle
+    path: path.resolve(__dirname, "./build/js/"), // Folder to store generated bundle
     filename: 'bundle.js', // Name of generated bundle after build
     publicPath: '/' // public URL of the output directory when referenced in a browser
   },
@@ -40,16 +40,24 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
-      }
+          test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+          use: [
+              {
+                  loader: 'file-loader',
+                  options: {
+                      name: '[name].[ext]',
+                      outputPath: "../images/",
+                      publicPath: '/_resources/themes/reactstarter/build/images' // public URL of the output directory when referenced in a browser
+                  },
+              },
+          ]
+      },
     ]
   },
 
   plugins: [
     new BrowserSyncPlugin({
       proxy: PROXY_URL,
-      files: ['resources/', 'public/index.php'], // Added files to watch,
       port: 8080,
       notify: true
     })

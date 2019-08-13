@@ -1,5 +1,8 @@
 import React, {Component} from "react";
+import Logo from '../../assets/images/logo.jpg'; // Tell Webpack this JS file uses this image
 import './header.scss';
+
+console.log(Logo);
 
 class Header extends Component {
   render() {
@@ -8,7 +11,7 @@ class Header extends Component {
         <div className="container">
           <div className="col">
             <a href="/">
-              Logo goes here
+              <img src={Logo} alt="Logo" />
             </a>
           </div>
         </div>

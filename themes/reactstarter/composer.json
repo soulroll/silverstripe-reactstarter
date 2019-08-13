@@ -19,7 +19,7 @@
             "dev-master": "3.2.x-dev"
         },
         "expose": [
-            "dist"
+            "build"
         ]
     }
 }

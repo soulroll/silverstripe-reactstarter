@@ -21,6 +21,9 @@ class Navigation extends Component {
                   <Link to='/teams' className="nav-link">Teams</Link>
                 </li>
                 <li className="nav-item">
+                  <Link to='/components' className="nav-link">Components</Link>
+                </li>
+                <li className="nav-item">
                   <Link to='/contact' className="nav-link">Contact</Link>
                 </li>
               </ul>
