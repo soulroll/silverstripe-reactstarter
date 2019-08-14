@@ -10,8 +10,7 @@ class Navigation extends Component {
       <div className="container-full navigation">
         <div className="container">
           <Navbar bg="light" expand="lg">
-            <Link to='/' className="navbar-brand">Navbar</Link>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
             <Navbar.Collapse id="basic-navbar-nav">
               <ul className="navbar-nav">
                 <li className="nav-item">

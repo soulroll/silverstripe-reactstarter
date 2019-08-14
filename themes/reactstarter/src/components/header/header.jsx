@@ -13,6 +13,10 @@ class Header extends Component {
             <a href="/">
               <img src={Logo} alt="Logo" />
             </a>
+            <div className="contact-info">
+              <li><a href="mailto:johndoe@company.co.nz">johndoe@company.co.nz</a></li>
+              <li>027 1234 567</li>
+            </div>
           </div>
         </div>
       </header>
