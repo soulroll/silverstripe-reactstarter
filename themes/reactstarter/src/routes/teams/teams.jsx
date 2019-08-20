@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { gql } from "apollo-boost";
 import TeamList from "mock/TeamList";
 
 class Teams extends Component {
@@ -10,7 +9,6 @@ class Teams extends Component {
           <div className="Teams">
             <h1>Teams</h1>
             <p>Team page stuff goes here</p>
-            <TeamList />
           </div>
         </div>
       </div>
