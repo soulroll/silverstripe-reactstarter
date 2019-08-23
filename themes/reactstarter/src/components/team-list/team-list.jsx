@@ -33,9 +33,9 @@ class TeamList extends Component {
 
             return (
               <div>
-                <ol>
-                  {teamsToRender.map(team => <li key={team.node.ID}>{team.node.Location}</li>)}
-                </ol>
+                <ul>
+                  {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location}</li>)}
+                </ul>
               </div>
             )
           }}

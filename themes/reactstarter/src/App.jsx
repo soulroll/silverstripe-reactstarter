@@ -31,7 +31,6 @@ class App extends Component {
 
               console.log(data)
 
-
               return (
                 <div>
                     <span>{data.readPlayer.Name}</span><br/>
