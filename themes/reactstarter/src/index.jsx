@@ -1,49 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 
-// 1
-import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloProviderHooks } from "react-apollo-hooks";
+import { gql } from 'apollo-boost';
 
-// 2
-const httpLink = createHttpLink({
-  uri: '/graphql'
-})
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-// 3
+const httpLink = createHttpLink({ uri: '/graphql' })
+
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()
 })
 
-client
-  .query({
-    query: gql`
-      query {
-        readTeam {
-          edges {
-            node {
-              ID
-              Name
-              Location
-            }
-          }
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
-ReactDOM.render((
+ReactDOM.render(
   <ApolloProvider client={client}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ApolloProvider>
-), document.getElementById('root'));
+    <ApolloProviderHooks client={client}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ApolloProviderHooks>
+  </ApolloProvider>,
+  document.getElementById('root')
+)

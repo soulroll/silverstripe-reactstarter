@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import TeamList from "mock/TeamList";
+import React, { Component } from "react";
+import TeamList from "components/team-list/team-list";
 
 class Teams extends Component {
   render() {
@@ -8,7 +8,8 @@ class Teams extends Component {
         <div className="col">
           <div className="Teams">
             <h1>Teams</h1>
-            <p>Team page stuff goes here</p>
+            <p>This is the teams route</p>
+            <TeamList />
           </div>
         </div>
       </div>
