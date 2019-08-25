@@ -11,6 +11,7 @@ const GET_TEAMS = gql`
           ID
           Name
           Location
+          getImageLink
         }
       }
     }
@@ -34,10 +35,14 @@ class TeamList extends Component {
             return (
               <div>
                 <ul>
-                  {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location}</li>)}
+                  {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
                 </ul>
+                <div>
+                  test
+                </div>
               </div>
             )
+
           }}
         </Query>
       </div>

@@ -101,6 +101,12 @@ class Team extends DataObject implements ScaffoldingProvider
 		return $this->TeamLogo()->ScaleHeight(50);
 	}
 
+
+	public function getImageLink()
+	{
+		return $this->TeamLogo()->Link();
+	}
+
 	/**
 	 * @param SchemaScaffolder $scaffolder Scaffolder
 	 * @return SchemaScaffolder
@@ -113,7 +119,8 @@ class Team extends DataObject implements ScaffoldingProvider
 			->addFields([
 				'ID',
 				'Name',
-				'Location'
+				'Location',
+				'getImageLink'
 			]);
 		// Provide operations
 		$typeScaffolder
