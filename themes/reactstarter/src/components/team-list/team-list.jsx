@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import BootstrapTable from "components/table/table";
 import "./team-list.scss";
 
 const GET_TEAMS = gql`
@@ -37,9 +38,9 @@ class TeamList extends Component {
                 <ul>
                   {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
                 </ul>
-                <div>
-                  test
-                </div>
+
+                <BootstrapTable />
+
               </div>
             )
 
