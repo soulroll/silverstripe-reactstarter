@@ -19,6 +19,26 @@ const GET_TEAMS = gql`
   }
 `;
 
+const headings = [
+  'Name',
+  'Location'
+];
+
+const rows = [
+  [
+    'Bob',
+    'Norway'
+  ],
+  [
+    'Fred',
+    'Denmark'
+  ],
+  [
+    'Trump',
+    'Cheetoland'
+  ]
+]
+
 class TeamList extends Component {
   render() {
     return (
@@ -28,9 +48,8 @@ class TeamList extends Component {
             if (loading) return <div>Loading...</div>;
             if (error) return <div>Error!</div>;
 
-            const reptiles = ['alligator', 'snake', 'lizard'];
-
             const teamsToRender = data.readTeam.edges
+
             console.log(teamsToRender)
 
             return (
@@ -39,7 +58,7 @@ class TeamList extends Component {
                   {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
                 </ul>
 
-                <BootstrapTable />
+                <BootstrapTable headings={headings} rows={rows} />
 
               </div>
             )
