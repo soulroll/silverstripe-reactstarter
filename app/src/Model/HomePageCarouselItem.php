@@ -2,13 +2,15 @@
 namespace Reactstarter\Reactstarter\Model;
 
 use SilverStripe\ORM\DataObject;
+use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
+use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextAreaField;
 use Reactstarter\Reactstarter\PageType\HomePage;
 
-class HomePageCarouselItem extends DataObject
+class HomePageCarouselItem extends DataObject implements ScaffoldingProvider
 {
 
 	/**
@@ -88,6 +90,40 @@ class HomePageCarouselItem extends DataObject
 			]
 		);
 		return $fields;
+	}
+
+	public function getImageLink()
+	{
+		return $this->Image()->Link();
+	}
+
+	/**
+	 * @param SchemaScaffolder $scaffolder Scaffolder
+	 * @return SchemaScaffolder
+	 */
+	public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder)
+	{
+		// Provide entity type
+		$typeScaffolder = $scaffolder
+			->type(HomePageCarouselItem::class)
+			->addFields([
+				'ID',
+				'Title',
+				'Caption',
+				'getImageLink'
+			]);
+		// Provide operations
+		$typeScaffolder
+			->operation(SchemaScaffolder::READ)
+			->setName('readHomePageCarouselItem')
+			->end();
+
+		return $scaffolder;
+	}
+
+	public function canView($member = '')
+	{
+		return true;
 	}
 
 	/**

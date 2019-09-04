@@ -1,5 +1,4 @@
 <?php
-
 namespace Reactstarter\Reactstarter\PageType;
 
 use Page;
@@ -84,13 +83,6 @@ class HomePage extends Page
 		);
 
 		return $fields;
-
 	}
+
 }
-
-
-
-
-
-
-

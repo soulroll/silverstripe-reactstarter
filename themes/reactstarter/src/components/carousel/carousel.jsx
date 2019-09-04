@@ -4,8 +4,20 @@ import "./carousel.scss";
 
 class BootstrapCarousel extends Component {
   render() {
+
+    console.log(this.props);
+
+    const {data} = this.props;
+
     return (
       <div>
+
+        {this.props.data.name}
+
+        <ul>
+          {this.props.data.hobbies.map((hobby) => <li>{hobby}</li>)}
+        </ul>
+
         <Carousel>
           <Carousel.Item>
             <img className="" src="https://placeimg.com/1080/480/any" alt="First slide" />

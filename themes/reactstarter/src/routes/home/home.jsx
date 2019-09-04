@@ -1,36 +1,40 @@
 import React, {Component} from 'react';
 import BootstrapCarousel from 'components/carousel/carousel';
-
-import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import { gql } from 'apollo-boost';
 
-const slides = [
-  'Name',
-  'Location'
-];
+const CAROUSEL_ITEMS_QUERY = gql`
+  query readSlides {
+    readHomePageCarouselItem {
+      edges {
+        node {
+          ID
+          Title
+          Caption
+          getImageLink
+        }
+      }
+    }
+  }
+`;
 
-class Home extends Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="col">
-          <div className="Home">
+const Home = () => {
 
-            <BootstrapCarousel slides={slides} />
+  var data = {
+    name: "David",
+    hobbies: ["Sports","Warhammer","Chess"]
+  };
 
-            <h1>Home</h1>
-            <p>Home page stuff goes here</p>
-            <h2>Things to do</h2>
-            <ul>
-              <li>Build a table that lists graph ql data</li>
-              <li>Get working subpage routing</li>
-              <li>Build the homepage components</li>
-            </ul>
-          </div>
+  return (
+    <div className="container">
+      <div className="col">
+        <div className="Home">
+          <BootstrapCarousel data={data} query={CAROUSEL_ITEMS_QUERY} />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+
+};
 
 export default Home;

@@ -39,35 +39,24 @@ const rows = [
   ]
 ]
 
-class TeamList extends Component {
-  render() {
-    return (
-      <div>
-        <Query query={GET_TEAMS}>
-          {({ loading, error, data }) => {
-            if (loading) return <div>Loading...</div>;
-            if (error) return <div>Error!</div>;
-
-            const teamsToRender = data.readTeam.edges
-
-            console.log(teamsToRender)
-
-            return (
-              <div>
-                <ul>
-                  {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
-                </ul>
-
-                <BootstrapTable headings={headings} rows={rows} />
-
-              </div>
-            )
-
-          }}
-        </Query>
-      </div>
-    );
-  }
-}
+const TeamList = () => (
+  <div>
+    <Query query={GET_TEAMS}>
+      {({ loading, error, data }) => {
+        if (loading) return <div>Loading...</div>;
+        if (error) return <div>Error!</div>;
+        const teamsToRender = data.readTeam.edges
+        console.log(teamsToRender)
+        return (
+          <div>
+            <ul>
+              {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
+            </ul>
+          </div>
+        )
+      }}
+    </Query>
+  </div>
+)
 
 export default TeamList;
