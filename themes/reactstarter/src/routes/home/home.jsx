@@ -33,14 +33,7 @@ const Home = () => (
 
         return (
           <div>
-            {results.map(api =>
-              <div>
-                {api.node.ID}
-                {api.node.Title}
-                {api.node.Caption}
-                {api.node.getImageLink}
-              </div>
-            )}
+            <BootstrapCarousel items={results} />
           </div>
         );
 
