@@ -3,7 +3,7 @@ import BootstrapCarousel from 'components/carousel/carousel';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
-const CAROUSEL_ITEMS_QUERY = gql`
+const GET_SLIDES = gql`
   query readSlides {
     readHomePageCarouselItem {
       edges {
@@ -18,23 +18,36 @@ const CAROUSEL_ITEMS_QUERY = gql`
   }
 `;
 
-const Home = () => {
+const Home = () => (
+  <div>
+    <Query query={GET_SLIDES}>
 
-  var data = {
-    name: "David",
-    hobbies: ["Sports","Warhammer","Chess"]
-  };
+      {({ loading, error, data }) => {
 
-  return (
-    <div className="container">
-      <div className="col">
-        <div className="Home">
-          <BootstrapCarousel data={data} query={CAROUSEL_ITEMS_QUERY} />
-        </div>
-      </div>
-    </div>
-  );
+        if (loading) return <div>Loading...</div>;
+        if (error) return <div>Error!</div>;
 
-};
+        const results = data.readHomePageCarouselItem.edges
+
+        console.log(data.readHomePageCarouselItem.edges)
+
+        return (
+          <div>
+            {results.map(api =>
+              <div>
+                {api.node.ID}
+                {api.node.Title}
+                {api.node.Caption}
+                {api.node.getImageLink}
+              </div>
+            )}
+          </div>
+        );
+
+      }}
+
+    </Query>
+  </div>
+)
 
 export default Home;

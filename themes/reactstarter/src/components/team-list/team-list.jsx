@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
-import BootstrapTable from "components/table/table";
-import "./team-list.scss";
+import BootstrapTable from 'components/table/table';
+import './team-list.scss';
 
 const GET_TEAMS = gql`
   query readTeams {

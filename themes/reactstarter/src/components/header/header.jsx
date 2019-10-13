@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import Logo from '../../assets/images/logo.png'; // Tell Webpack this JS file uses this image
 import './header.scss';
 

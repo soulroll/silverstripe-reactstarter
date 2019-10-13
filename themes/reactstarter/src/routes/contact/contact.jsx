@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import "./contact.scss";
+import React, {Component} from 'react';
+import './contact.scss';
 
 const Contact = () => (
   <div className="container">

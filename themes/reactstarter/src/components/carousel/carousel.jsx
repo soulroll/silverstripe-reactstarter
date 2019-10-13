@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import Carousel from 'react-bootstrap/Carousel'
-import "./carousel.scss";
+import React, {Component} from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import './carousel.scss';
 
 class BootstrapCarousel extends Component {
   render() {
