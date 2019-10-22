@@ -8,6 +8,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use Reactstarter\Reactstarter\Model\HomePageCarouselItem;
+use Reactstarter\Reactstarter\Model\HomePageCardItem;
 
 class HomePage extends Page
 {
@@ -61,11 +62,11 @@ class HomePage extends Page
 		$fields = parent::getCMSFields();
 
 		$fields->addFieldsToTab(
-			'Root.Main',
+			'Root.Carousel',
 			array(
 				FieldGroup::create(
-					CheckboxField::create('SliderArrows','Arrows?')
-				)->setTitle('Show arrows')->setName('SliderOptionsArrows'),
+					CheckboxField::create('SliderArrows','Show arrows')
+				)->setTitle('Arrows')->setName('SliderOptionsArrows'),
 			)
 		);
 
@@ -76,6 +77,19 @@ class HomePage extends Page
 					'CarouselItems',
 					'Carousel Items',
 					$this->CarouselItems(),
+					GridFieldConfig_RecordEditor::create()
+						->addComponent(new GridFieldSortableRows('SortOrder'))
+				)
+			)
+		);
+
+		$fields->addFieldsToTab(
+			'Root.Cards',
+			array(
+				GridField::create(
+					'CardItems',
+					'Card Items',
+					$this->CardItems(),
 					GridFieldConfig_RecordEditor::create()
 						->addComponent(new GridFieldSortableRows('SortOrder'))
 				)

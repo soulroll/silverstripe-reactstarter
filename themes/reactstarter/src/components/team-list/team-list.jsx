@@ -13,6 +13,13 @@ const GET_TEAMS = gql`
           Name
           Location
           getImageLink
+          Players {
+            edges {
+              node {
+                Name
+              }
+            }
+          }
         }
       }
     }

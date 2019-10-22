@@ -121,7 +121,10 @@ class Team extends DataObject implements ScaffoldingProvider
 				'Name',
 				'Location',
 				'getImageLink'
-			]);
+			])
+			->nestedQuery(
+				'Players'
+			)->end();
 		// Provide operations
 		$typeScaffolder
 			->operation(SchemaScaffolder::READ)
