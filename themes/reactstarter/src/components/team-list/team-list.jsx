@@ -16,6 +16,7 @@ const GET_TEAMS = gql`
           Players {
             edges {
               node {
+                ID
                 Name
               }
             }
@@ -57,8 +58,11 @@ const TeamList = () => (
         return (
           <div>
             <ul>
-              {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} - {team.node.getImageLink} <img src={team.node.getImageLink} /></li>)}
+              {teamsToRender.map(team => <li key={team.node.ID}><strong>{team.node.Name}</strong> - {team.node.Location} <img src={team.node.getImageLink} /></li>)}
             </ul>
+            <div>
+              {teamsToRender.map(team => <li key={team.node.ID}>{team.node.Players.edges.map(test => <li key={test.node.ID}>{test.node.Name}</li>)}</li> )}
+            </div>
           </div>
         )
       }}
