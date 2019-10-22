@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BootstrapCarousel from 'components/carousel/carousel';
+import BootstrapCard from 'components/card/card';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
@@ -33,7 +34,10 @@ const Home = () => (
 
         return (
           <div>
-            <BootstrapCarousel items={results} />
+            <BootstrapCarousel items={results}/>
+            <div className="container mt-5 mb-5">
+              <BootstrapCard/>
+            </div>
           </div>
         );
 

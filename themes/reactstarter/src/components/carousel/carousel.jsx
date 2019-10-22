@@ -8,7 +8,7 @@ const BootstrapCarousel = (props) =>  {
   const {data} = props;
 
   return (
-    <Carousel>
+    <Carousel fade={true} >
       {props.items.map(item => (
         <Carousel.Item key={item.node.ID}>
           <img
@@ -16,6 +16,10 @@ const BootstrapCarousel = (props) =>  {
             src={item.node.getImageLink}
             alt={item.node.Title}
           />
+          <Carousel.Caption>
+            <h3>{item.node.Title}</h3>
+            <p>{item.node.Caption}</p>
+          </Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>
