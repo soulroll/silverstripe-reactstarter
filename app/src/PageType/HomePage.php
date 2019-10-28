@@ -8,7 +8,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use Reactstarter\Reactstarter\Model\HomePageCarouselItem;
-use Reactstarter\Reactstarter\Model\HomePageCardItem;
+use Reactstarter\Reactstarter\Model\Card;
 
 class HomePage extends Page
 {
@@ -51,7 +51,8 @@ class HomePage extends Page
 	 * @config
 	 */
 	private static $has_many = array(
-		'CarouselItems' => HomePageCarouselItem::class
+		'CarouselItems' => HomePageCarouselItem::class,
+		'Cards' => Card::class
 	);
 
 	/**
@@ -89,7 +90,7 @@ class HomePage extends Page
 				GridField::create(
 					'CardItems',
 					'Card Items',
-					$this->CardItems(),
+					$this->Cards(),
 					GridFieldConfig_RecordEditor::create()
 						->addComponent(new GridFieldSortableRows('SortOrder'))
 				)
@@ -98,5 +99,19 @@ class HomePage extends Page
 
 		return $fields;
 	}
+
+	/**
+	 * Ensure that only a single home is able to be created in the CMS
+	 *
+	 * @param Member $member  default parameter for canCreate
+	 * @param array  $context Additional context-specific data which might affect
+	 *                        whether (or where) this object could be created
+	 * @return boolean
+	 */
+	public function canCreate($member = null, $context = [])
+	{
+		return (parent::canCreate($member) && HomePage::get()->Count() === 0);
+	}
+
 
 }

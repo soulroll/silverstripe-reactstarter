@@ -19,17 +19,29 @@ const GET_SLIDES = gql`
   }
 `;
 
+const GET_CARDS = gql`
+  query readCards {
+    readCard {
+      edges {
+        node {
+          ID
+          Title
+          Content
+        }
+      }
+    }
+  }
+`;
+
 const Home = () => (
   <div>
     <Query query={GET_SLIDES}>
-
       {({ loading, error, data }) => {
 
         if (loading) return <div>Loading...</div>;
         if (error) return <div>Error!</div>;
 
         const results = data.readHomePageCarouselItem.edges
-
         console.log(data.readHomePageCarouselItem.edges)
 
         return (
@@ -42,8 +54,23 @@ const Home = () => (
         );
 
       }}
-
     </Query>
+
+    <Query query={GET_CARDS}>
+      {({ loading, error, data }) => {
+
+        if (loading) return <div>Loading...</div>;
+        if (error) return <div>Error!</div>;
+
+        return (
+          <div>
+            <BootstrapCard/>
+          </div>
+        );
+
+      }}
+    </Query>
+
   </div>
 )
 

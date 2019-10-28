@@ -7,4 +7,5 @@ SilverStripe\GraphQL\Manager:
       scaffolding_providers:
         - Reactstarter\Reactstarter\Model\Team
         - Reactstarter\Reactstarter\Model\Player
+        - Reactstarter\Reactstarter\Model\Card
         - Reactstarter\Reactstarter\Model\HomePageCarouselItem
