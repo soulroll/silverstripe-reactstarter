@@ -49,7 +49,7 @@ class Card extends DataObject implements ScaffoldingProvider
 
 	/**
 	 * @var array
-	 * @config
+	 * @config/graphql
 	 */
 	private static $summary_fields = array(
 		'getThumbnail' => 'Image',
@@ -84,7 +84,12 @@ class Card extends DataObject implements ScaffoldingProvider
 		return $fields;
 	}
 
-	public function Link()
+	public function getImageLink()
+	{
+		return $this->Image()->Link();
+	}
+
+	public function getLink()
 	{
 		if (!$this->InternalURL()->exists()) {
 			return '';
@@ -92,6 +97,16 @@ class Card extends DataObject implements ScaffoldingProvider
 
 		return $this->InternalURL()->Link();
 	}
+
+
+	public function getLinkTitle() {
+		if (!$this->InternalURL()->exists()) {
+			return '';
+		}
+
+		return $this->InternalURL()->Title;
+	}
+
 
 	public function onAfterWrite()
 	{
@@ -119,7 +134,11 @@ class Card extends DataObject implements ScaffoldingProvider
 			->addFields([
 				'ID',
 				'Title',
-				'Content'
+				'Content',
+				'getImageLink',
+				'getLink',
+				'getLinkTitle'
+
 			]);
 		// Provide operations
 		$typeScaffolder

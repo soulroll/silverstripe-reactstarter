@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './carousel.scss';
 
-const BootstrapCarousel = (props) =>  {
+const BootstrapCarousel = (props) => {
 
   //console.log(props.items);
   const {data} = props;

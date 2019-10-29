@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
+import CardImg from 'react-bootstrap/Card';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './card.scss';
 
-const BootstrapCard = () =>  {
+const BootstrapCard = (props) => {
+
   return (
-    <div>
-      <Card style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-    </div>
+    <Card>
+      <img width="100%" src={props.image} alt="Card image cap" />
+      <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>
+          {props.content}
+        </Card.Text>
+        <a href={props.link}>{props.linktitle}</a>
+      </Card.Body>
+    </Card>
   )
 }
 
