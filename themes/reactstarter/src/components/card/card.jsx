@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import './card.scss';
 
 const BootstrapCard = (props) => {
-
   return (
     <Card>
       <img width="100%" src={props.image} alt="Card image cap" />
@@ -14,7 +13,7 @@ const BootstrapCard = (props) => {
         <Card.Text>
           {props.content}
         </Card.Text>
-        <a href={props.link}>{props.linktitle}</a>
+        <a className="btn btn-primary" href={props.link}>{props.linktitle}</a>
       </Card.Body>
     </Card>
   )
