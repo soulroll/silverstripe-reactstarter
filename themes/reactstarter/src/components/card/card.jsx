@@ -13,7 +13,9 @@ const BootstrapCard = (props) => {
         <Card.Text>
           {props.content}
         </Card.Text>
-        <a className="btn btn-primary" href={props.link}>{props.linktitle}</a>
+        {!!props.linktitle && (
+          <a className="btn btn-primary" href={props.link}>{props.linktitle}</a>
+        )}
       </Card.Body>
     </Card>
   )
