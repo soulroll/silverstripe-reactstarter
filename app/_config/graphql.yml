@@ -9,3 +9,4 @@ SilverStripe\GraphQL\Manager:
         - Reactstarter\Reactstarter\Model\Player
         - Reactstarter\Reactstarter\Model\Card
         - Reactstarter\Reactstarter\Model\HomePageCarouselItem
+        - Page
