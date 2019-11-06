@@ -3,6 +3,7 @@ import Header from './components/header/header';
 import Navigation from './components/navigation/navigation';
 import Footer from './components/footer/footer';
 import Layout from './Layout';
+import Routes from './Routes';
 
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
@@ -29,6 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+
         <div>
           <Query query={GET_SITETREE}>
             {({ loading, error, data }) => {
@@ -48,9 +51,11 @@ class App extends Component {
             }}
           </Query>
         </div>
+
         <Header />
-        <Navigation />
-        <Layout />
+        <Navigation Routes={Routes}/>
+        <Layout Routes={Routes}/>
+
         <Footer />
       </div>
     );

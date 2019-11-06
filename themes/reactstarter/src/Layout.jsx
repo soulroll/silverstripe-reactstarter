@@ -5,15 +5,14 @@ import Teams from './routes/teams/teams';
 import Components from './routes/components/components';
 import Contact from './routes/contact/contact';
 
+import Routes from './Routes';
+
 class Layout extends Component {
   render() {
     return (
       <div className="Layout">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/components" component={Components} />
-          <Route path="/contact" component={Contact} />
+          {Routes.map(route => <Route key={route.name} {...route} />)}
         </Switch>
       </div>
     );
