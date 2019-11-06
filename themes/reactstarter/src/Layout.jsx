@@ -25,19 +25,30 @@ const GET_SITETREE = gql`
   }
 `;
 
-class Layout extends Component {
-  render() {
-    return (
-      <div className="Layout">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/components" component={Components} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
-      </div>
-    );
-  }
-}
+const Layout = () => (
+  <div>
+    <Query query={GET_SITETREE}>
+      {({ loading, error, data }) => {
+
+        if (loading) return <div>Loading...</div>;
+        if (error) return <div>Error!</div>;
+
+        const routesToRender = data.readSiteTrees.edges
+        console.log(routesToRender)
+
+        return (
+          <div className="Layout">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/teams" component={Teams} />
+              <Route path="/components" component={Components} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </div>
+        );
+      }}
+    </Query>
+  </div>
+)
 
 export default Layout;
