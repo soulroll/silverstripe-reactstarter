@@ -42,6 +42,10 @@ const Layout = () => (
         return (
           <div className="Layout">
             <Switch>
+              <Route
+                exact path={"/"}
+                render={(props) => <Home {...props} />}
+              />
               {routesToRender.map(menu =>
                 <Route
                   key={menu.node.ID}

@@ -35,7 +35,8 @@ class HomePage extends Page
 	 * @config
 	 */
 	private static $defaults = array (
-		'SliderArrows' => true
+		'SliderArrows' => true,
+		'ShowInMenus' => false
 	);
 
 	/**
@@ -100,18 +101,9 @@ class HomePage extends Page
 		return $fields;
 	}
 
-	/**
-	 * Ensure that only a single home is able to be created in the CMS
-	 *
-	 * @param Member $member  default parameter for canCreate
-	 * @param array  $context Additional context-specific data which might affect
-	 *                        whether (or where) this object could be created
-	 * @return boolean
-	 */
 	public function canCreate($member = null, $context = [])
 	{
 		return (parent::canCreate($member) && HomePage::get()->Count() === 0);
 	}
-
 
 }

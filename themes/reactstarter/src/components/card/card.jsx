@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CardImg from 'react-bootstrap/Card';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import './card.scss';
 
 const BootstrapCard = (props) => {
@@ -9,9 +10,9 @@ const BootstrapCard = (props) => {
     if (props.image) {
       if (props.link) {
         return (
-          <a href={props.link}>
-              <img width="100%" src={props.image} alt="Card image cap" />
-          </a>
+          <Link to={props.link}>
+            <img width="100%" src={props.image} alt="Card image cap" />
+          </Link>
          );
       } else {
         return (
@@ -23,7 +24,6 @@ const BootstrapCard = (props) => {
     return null;
   }
 
-
   return (
     <Card>
       {renderThing()}
@@ -33,7 +33,7 @@ const BootstrapCard = (props) => {
           {props.content}
         </Card.Text>
         {!!props.linktitle && (
-          <a className="btn btn-primary" href={props.link}>{props.linktitle}</a>
+          <Link to={props.link} className="btn btn-primary">{props.linktitle}</Link>
         )}
       </Card.Body>
     </Card>

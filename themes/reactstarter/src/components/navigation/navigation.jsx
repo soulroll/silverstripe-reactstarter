@@ -40,6 +40,9 @@ const Navigation = () => (
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                   <ul className="navbar-nav">
+                    <li key={"1"} className="nav-item">
+                      <Link to={"/"} className="nav-link">{"Home"}</Link>
+                    </li>
                     {routesToRender.map(menu =>
                       <li key={menu.node.ID} className="nav-item">
                         <Link to={menu.node.URLSegment} className="nav-link">{menu.node.Title}</Link>
