@@ -3,7 +3,6 @@ import Header from './components/header/header';
 import Navigation from './components/navigation/navigation';
 import Footer from './components/footer/footer';
 import Layout from './Layout';
-import Routes from './Routes';
 
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
@@ -14,8 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Navigation Routes={Routes}/>
-        <Layout Routes={Routes}/>
+        <Navigation />
+        <Layout />
         <Footer />
       </div>
     );

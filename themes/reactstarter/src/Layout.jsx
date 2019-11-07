@@ -6,6 +6,8 @@ import { Query } from 'react-apollo';
 import Home from './routes/home/home';
 import Teams from './routes/teams/teams';
 import Components from './routes/components/components';
+import Page from './routes/page/page';
+
 import Contact from './routes/contact/contact';
 
 const GET_SITETREE = gql`
@@ -38,12 +40,17 @@ const Layout = () => (
 
         return (
           <div className="Layout">
+
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/teams" component={Teams} />
-              <Route path="/components" component={Components} />
-              <Route path="/contact" component={Contact} />
+              {routesToRender.map(menu =>
+                <Route
+                  key={menu.node.ID}
+                  exact path={"/"+menu.node.URLSegment}
+                  render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
+                />
+              )}
             </Switch>
+
           </div>
         );
       }}
