@@ -10,6 +10,7 @@ import Page from './routes/page/page';
 
 import Contact from './routes/contact/contact';
 
+
 const GET_SITETREE = gql`
   query readSiteTrees {
     readSiteTrees(ShowInMenus: true) {
@@ -40,7 +41,6 @@ const Layout = () => (
 
         return (
           <div className="Layout">
-
             <Switch>
               {routesToRender.map(menu =>
                 <Route
@@ -50,7 +50,6 @@ const Layout = () => (
                 />
               )}
             </Switch>
-
           </div>
         );
       }}

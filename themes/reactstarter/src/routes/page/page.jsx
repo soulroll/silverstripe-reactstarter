@@ -9,6 +9,7 @@ const Page = (props) => (
     <div className="col">
       {console.log(props)}
       <h1>{props.title}</h1>
+      <div dangerouslySetInnerHTML={{__html: props.content}} />
     </div>
   </div>
 )
