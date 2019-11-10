@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown } from 'react-bootstrap';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
@@ -41,11 +41,11 @@ const Navigation = () => (
                 <Navbar.Collapse id="basic-navbar-nav">
                   <ul className="navbar-nav">
                     <li key={"1"} className="nav-item">
-                      <Link to={"/"} className="nav-link">{"Home"}</Link>
+                      <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
                     </li>
                     {routesToRender.map(menu =>
                       <li key={menu.node.ID} className="nav-item">
-                        <Link to={menu.node.URLSegment} className="nav-link">{menu.node.Title}</Link>
+                        <NavLink activeClassName="active" to={menu.node.URLSegment} className="nav-link">{menu.node.Title}</NavLink>
                       </li>
                     )}
                   </ul>
