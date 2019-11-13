@@ -10,3 +10,4 @@ SilverStripe\GraphQL\Manager:
         - Reactstarter\Reactstarter\Model\Card
         - Reactstarter\Reactstarter\Model\HomePageCarouselItem
         - Page
+        - Reactstarter\Reactstarter\Extension\CustomSiteConfig
