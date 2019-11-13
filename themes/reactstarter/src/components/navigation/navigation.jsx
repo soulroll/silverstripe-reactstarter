@@ -12,6 +12,7 @@ const GET_SITETREE = gql`
       edges {
         node {
           ID
+          ParentID
           Title
           Content
           URLSegment
@@ -45,7 +46,7 @@ const Navigation = () => (
                     </li>
                     {routesToRender.map(menu =>
                       <li key={menu.node.ID} className="nav-item">
-                        <NavLink activeClassName="active" to={menu.node.URLSegment} className="nav-link">{menu.node.Title}</NavLink>
+                        <NavLink activeClassName="active" to={menu.node.URLSegment} className="nav-link">{menu.node.ParentID} {menu.node.Title}</NavLink>
                       </li>
                     )}
                   </ul>

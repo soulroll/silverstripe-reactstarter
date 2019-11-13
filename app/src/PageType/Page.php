@@ -26,6 +26,7 @@ namespace {
 				->type('Page')
 				->addFields([
 					'ID',
+					'ParentID',
 					'Title',
 					'Content',
 					'URLSegment',
@@ -38,13 +39,20 @@ namespace {
 					->setName('readSiteTrees')
 					->addArgs([
 						'Title' => 'String',
-						'ShowInMenus' => 'Boolean'
+						'ShowInMenus' => 'Boolean',
+						'ParentID' => 'String'
 					])
 					->setResolver(function ($object, array $args, $context, ResolveInfo $info) {
 						$list = Page::get();
+
 						if (isset($args['ShowInMenus']) && $args['ShowInMenus']) {
 							$list = $list->filter('ShowInMenus',$args['ShowInMenus']);
 						}
+
+						if (isset($args['Title'])) {
+							$list = $list->filter('Title:PartialMatch', $args['Title']);
+						}
+
 						return $list;
 					})
 				->end();

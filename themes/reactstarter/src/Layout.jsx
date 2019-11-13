@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Route, Switch } from 'react-router-dom';
-import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
 import Home from './routes/home/home';
@@ -9,24 +8,7 @@ import Components from './routes/components/components';
 import Page from './routes/page/page';
 
 import Contact from './routes/contact/contact';
-
-
-const GET_SITETREE = gql`
-  query readSiteTrees {
-    readSiteTrees(ShowInMenus: true) {
-      edges {
-        node {
-          ID
-          Title
-          Content
-          URLSegment
-          ShowInMenus
-          Sort
-        }
-      }
-    }
-  }
-`;
+import GET_SITETREE from './graphql/queries/sitetree';
 
 const Layout = () => (
   <div>
@@ -37,7 +19,7 @@ const Layout = () => (
         if (error) return <div>Error!</div>;
 
         const routesToRender = data.readSiteTrees.edges
-        console.log(routesToRender)
+        // console.log(routesToRender)
 
         return (
           <div className="Layout">
