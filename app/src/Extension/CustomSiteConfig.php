@@ -41,9 +41,9 @@ class CustomSiteConfig extends DataExtension implements ScaffoldingProvider
 		$typeScaffolder = $scaffolder
 			->type(SiteConfig::class)
 			->addFields([
+				'SiteCopyright',
 				'Title',
-				'Tagline',
-				'SiteCopyright'
+				'Tagline'
 			]);
 		// Provide operations
 		$typeScaffolder
@@ -53,6 +53,11 @@ class CustomSiteConfig extends DataExtension implements ScaffoldingProvider
 			->end();
 
 		return $scaffolder;
+	}
+
+	public function canView($member = '')
+	{
+		return true;
 	}
 
 	/**

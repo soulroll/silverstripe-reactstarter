@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown } from 'react-bootstrap';
-import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import GET_SITETREE from '../../graphql/queries/sitetree';
 
 import './navigation.scss';
-
-const GET_SITETREE = gql`
-  query readSiteTrees {
-    readSiteTrees(ShowInMenus: true) {
-      edges {
-        node {
-          ID
-          ParentID
-          Title
-          Content
-          URLSegment
-          ShowInMenus
-          Sort
-        }
-      }
-    }
-  }
-`;
 
 const Navigation = () => (
   <div>
