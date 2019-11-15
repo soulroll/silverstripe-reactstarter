@@ -31,7 +31,7 @@ const Layout = () => (
               {routesToRender.map(menu =>
                 <Route
                   key={menu.node.ID}
-                  exact path={"/"+menu.node.URLSegment}
+                  path={"/"+menu.node.URLSegment}
                   render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
                 />
               )}

@@ -28,7 +28,25 @@ const Navigation = () => (
                     </li>
                     {routesToRender.map(menu =>
                       <li key={menu.node.ID} className="nav-item">
-                        <NavLink activeClassName="active" to={menu.node.URLSegment} className="nav-link">{menu.node.ParentID} {menu.node.Title} {console.log(menu.node.Children)}</NavLink>
+                        <NavLink
+                          activeClassName="active"
+                          to={menu.node.URLSegment}
+                          className="nav-link">
+                          {menu.node.ParentID} {menu.node.Title}
+                        </NavLink>
+                        <ul>
+                          {menu.node.Children.edges.map(menu =>
+                            <li key={menu.node.ID}>
+                              <NavLink
+                                to={menu.node.URLSegment}
+                                className="nav-link"
+                                activeClassName="active"
+                              >
+                              {menu.node.Title}
+                              </NavLink>
+                            </li>
+                          )}
+                        </ul>
                       </li>
                     )}
                   </ul>
