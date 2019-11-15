@@ -32,7 +32,11 @@ namespace {
 					'URLSegment',
 					'ShowInMenus',
 					'Sort'
-				]);
+				])
+				->nestedQuery(
+					'Children'
+				)->end();
+
 			// Provide operations
 			$typeScaffolder
 				->operation(SchemaScaffolder::READ)
@@ -44,6 +48,10 @@ namespace {
 					])
 					->setResolver(function ($object, array $args, $context, ResolveInfo $info) {
 						$list = Page::get();
+
+						if (isset($args['ParentID'])) {
+							$list = $list->filter('ParentID',$args['ParentID']);
+						}
 
 						if (isset($args['ShowInMenus']) && $args['ShowInMenus']) {
 							$list = $list->filter('ShowInMenus',$args['ShowInMenus']);

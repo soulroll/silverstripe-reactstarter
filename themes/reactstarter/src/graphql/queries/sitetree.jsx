@@ -1,17 +1,29 @@
 import { gql } from 'apollo-boost';
 
 export const GET_SITETREE = gql`
+
+  fragment sitetreeParts on Page {
+    ID
+    ParentID
+    Title
+    Content
+    URLSegment
+    ShowInMenus
+    Sort
+  }
+
   query readSiteTrees {
-    readSiteTrees(ShowInMenus: true) {
+    readSiteTrees(ShowInMenus: true ParentID: "0") {
       edges {
         node {
-          ID
-          ParentID
-          Title
-          Content
-          URLSegment
-          ShowInMenus
-          Sort
+          ...sitetreeParts
+          Children {
+            edges {
+              node {
+                ...sitetreeParts
+              }
+            }
+          }
         }
       }
     }
