@@ -19,7 +19,6 @@ const Layout = () => (
         if (error) return <div>Error!</div>;
 
         const routesToRender = data.readSiteTrees.edges
-        // console.log(routesToRender)
 
         return (
           <div className="Layout">
@@ -32,9 +31,16 @@ const Layout = () => (
                 <Route
                   key={menu.node.ID}
                   path={"/"+menu.node.URLSegment}
+                  exact
                   render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
                 />
               )}
+
+              <Route
+                path={"/services/website-design"}
+                component={Teams}
+              />
+
             </Switch>
           </div>
         );

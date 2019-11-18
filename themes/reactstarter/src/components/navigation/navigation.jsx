@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import GET_SITETREE from '../../graphql/queries/sitetree';
@@ -17,11 +17,13 @@ const Navigation = () => (
         const routesToRender = data.readSiteTrees.edges
 
         return (
+
           <div className="container-full navigation">
             <div className="container">
               <Navbar bg="light" expand="lg">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
                 <Navbar.Collapse id="basic-navbar-nav">
+
                   <ul className="navbar-nav">
                     <li key={"1"} className="nav-item">
                       <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
@@ -30,25 +32,38 @@ const Navigation = () => (
                       <li key={menu.node.ID} className="nav-item">
                         <NavLink
                           activeClassName="active"
+                          exact
                           to={menu.node.URLSegment}
-                          className="nav-link">
-                          {menu.node.ParentID} {menu.node.Title}
+                          className="nav-link"
+                        >
+                          {menu.node.URLSegment}
                         </NavLink>
+
                         <ul>
-                          {menu.node.Children.edges.map(menu =>
-                            <li key={menu.node.ID}>
+                          {menu.node.Children.edges.map(menu2 =>
+                            <li key={menu2.node.ID}>
                               <NavLink
-                                to={menu.node.URLSegment}
+                                to={`/${menu.node.URLSegment}/${menu2.node.URLSegment}`}
                                 className="nav-link"
-                                activeClassName="active"
                               >
-                              {menu.node.Title}
+                              {menu2.node.Title}
                               </NavLink>
                             </li>
                           )}
                         </ul>
+
                       </li>
                     )}
+
+                    <li>
+                      <NavLink
+                        to={'/services/website-design'}
+                        className="nav-link"
+                       >
+                       Test
+                      </NavLink>
+                    </li>
+
                   </ul>
                 </Navbar.Collapse>
               </Navbar>

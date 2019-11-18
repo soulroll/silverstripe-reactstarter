@@ -45,7 +45,7 @@ const Home = () => (
         if (error) return <div>Error!</div>;
 
         const results = data.readHomePageCarouselItem.edges
-        console.log(results)
+        // console.log(results)
 
         return (
           <div>

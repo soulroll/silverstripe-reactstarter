@@ -16,8 +16,7 @@ const Footer = () => (
             if (error) return <div>Error!</div>;
 
             const siteconfigToRender = data.readSiteConfig
-
-            console.log(siteconfigToRender)
+            // console.log(siteconfigToRender)
 
             return (
               <div>
