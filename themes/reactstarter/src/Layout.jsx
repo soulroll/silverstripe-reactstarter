@@ -28,13 +28,25 @@ const Layout = () => (
                 exact path={"/"}
                 render={(props) => <Home {...props} />}
               />
+
               {routesToRender.map(menu =>
+              <>
+              <Route
+                key={menu.node.ID}
+                path={"/"+menu.node.URLSegment}
+                exact
+                render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
+              />
+
+                {menu.node.Children.edges.map(submenu =>
                 <Route
-                  key={menu.node.ID}
-                  path={"/"+menu.node.URLSegment}
+                  key={"sub"+submenu.node.ID}
+                  path={`/${menu.node.URLSegment}/${submenu.node.URLSegment}`}
                   exact
-                  render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
+                  render={(props) => <Page {...props} title={submenu.node.Title} content={submenu.node.Content} />}
                 />
+                )}
+              </>
               )}
 
               <Route
