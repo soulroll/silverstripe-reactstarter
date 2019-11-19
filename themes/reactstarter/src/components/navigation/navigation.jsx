@@ -1,78 +1,62 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown } from 'react-bootstrap';
-import { Query } from 'react-apollo';
+import { useQuery } from "@apollo/react-hooks";
 import GET_SITETREE from '../../graphql/queries/sitetree';
 
 import './navigation.scss';
 
-const Navigation = () => (
-  <div>
-    <Query query={GET_SITETREE}>
-      {({ loading, error, data }) => {
+const Navigation = () => {
 
-        if (loading) return <div>Loading...</div>;
-        if (error) return <div>Error!</div>;
+  const { loading, error, data } = useQuery(GET_SITETREE);
 
-        const routesToRender = data.readSiteTrees.edges
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error!</div>;
 
-        return (
+  const routesToRender = data.readSiteTrees.edges
+  console.log(routesToRender)
 
-          <div className="container-full navigation">
-            <div className="container">
-              <Navbar bg="light" expand="lg">
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
-                <Navbar.Collapse id="basic-navbar-nav">
-
-                  <ul className="navbar-nav">
-                    <li key={"1"} className="nav-item">
-                      <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
-                    </li>
-                    {routesToRender.map(menu =>
-                      <li key={menu.node.ID} className="nav-item">
+  return (
+    <div className="container-full navigation">
+      <div className="container">
+        <Navbar bg="light" expand="lg">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <ul className="navbar-nav">
+              <li key={"home"} className="nav-item">
+                <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
+              </li>
+              {routesToRender.map(menu =>
+                <li key={menu.node.ID}>
+                  <NavLink
+                    activeClassName="active"
+                    to={"/"+menu.node.URLSegment}
+                    className="nav-link"
+                  >
+                  {menu.node.Title}
+                  </NavLink>
+                  <ul>
+                    {menu.node.Children.edges.map(submenu =>
+                      <li key={submenu.node.ID}>
                         <NavLink
                           activeClassName="active"
-                          exact
-                          to={menu.node.URLSegment}
                           className="nav-link"
+                          to={`/${menu.node.URLSegment}/${submenu.node.URLSegment}`}
                         >
-                          {menu.node.URLSegment}
+                          {submenu.node.Title}
                         </NavLink>
-
-                        <ul>
-                          {menu.node.Children.edges.map(menu2 =>
-                            <li key={menu2.node.ID}>
-                              <NavLink
-                                to={`/${menu.node.URLSegment}/${menu2.node.URLSegment}`}
-                                className="nav-link"
-                              >
-                              {menu2.node.Title}
-                              </NavLink>
-                            </li>
-                          )}
-                        </ul>
-
                       </li>
                     )}
-
-                    <li>
-                      <NavLink
-                        to={'/services/website-design'}
-                        className="nav-link"
-                       >
-                       Test
-                      </NavLink>
-                    </li>
-
                   </ul>
-                </Navbar.Collapse>
-              </Navbar>
-            </div>
-          </div>
-        );
-      }}
-    </Query>
-  </div>
-)
+                </li>
+              )}
+            </ul>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    </div>
+  );
+
+}
 
 export default Navigation;

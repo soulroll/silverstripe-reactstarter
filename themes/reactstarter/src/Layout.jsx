@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { Query } from 'react-apollo';
 
 import Home from './routes/home/home';
@@ -11,6 +11,7 @@ import Contact from './routes/contact/contact';
 import GET_SITETREE from './graphql/queries/sitetree';
 
 const Layout = () => (
+
   <div>
     <Query query={GET_SITETREE}>
       {({ loading, error, data }) => {
