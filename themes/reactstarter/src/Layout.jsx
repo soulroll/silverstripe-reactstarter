@@ -24,30 +24,32 @@ const Layout = () => (
         return (
           <div className="Layout">
             <Switch>
+
               <Route
                 exact path={"/"}
                 render={(props) => <Home {...props} />}
               />
 
-              {routesToRender.map(menu =>
               <>
-              <Route
-                key={menu.node.ID}
-                path={"/"+menu.node.URLSegment}
-                exact
-                render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
-              />
-
+              {routesToRender.map(menu =>
+                <Switch key={menu.node.ID}>
+                <Route
+                  key={menu.node.ID}
+                  path={"/"+menu.node.URLSegment}
+                  exact
+                  render={(props) => <Page {...props} title={menu.node.Title} content={menu.node.Content} />}
+                />
                 {menu.node.Children.edges.map(submenu =>
                 <Route
-                  key={"sub"+submenu.node.ID}
+                  key={submenu.node.ID}
                   path={`/${menu.node.URLSegment}/${submenu.node.URLSegment}`}
                   exact
                   render={(props) => <Page {...props} title={submenu.node.Title} content={submenu.node.Content} />}
                 />
                 )}
-              </>
+                </Switch>
               )}
+              </>
 
               <Route
                 path={"/services/website-design"}
