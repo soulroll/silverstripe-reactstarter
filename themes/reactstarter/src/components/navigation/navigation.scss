@@ -1,3 +1,26 @@
-.navigation {
+.navigation-bar {
   background-color: #f8f9fa;
+}
+
+.navigation-dropdown {
+  display: none;
+  padding-left: 0;
+  list-style: none;
+  background-color: #f8f9fa;
+  z-index: 2;
+  min-width: 150px;
+
+  @media only screen and (min-width: 768px) {
+    position: absolute;
+  }
+}
+
+.navigation-item {
+  position: relative;
+
+  &:hover {
+    .navigation-dropdown {
+      display: block;
+    }
+  }
 }

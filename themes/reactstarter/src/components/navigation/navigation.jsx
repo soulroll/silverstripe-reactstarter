@@ -17,9 +17,9 @@ const Navigation = () => {
   console.log(routesToRender)
 
   return (
-    <div className="container-full navigation">
+    <div className="container-full navigation-bar">
       <div className="container">
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="navigation">
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="navbar-nav">
@@ -27,20 +27,20 @@ const Navigation = () => {
                 <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
               </li>
               {routesToRender.map(menu =>
-                <li key={menu.node.ID}>
+                <li key={menu.node.ID} className="nav-item navigation-item">
                   <NavLink
                     activeClassName="active"
                     to={"/"+menu.node.URLSegment}
-                    className="nav-link"
+                    className="nav-link navigation-link"
                   >
                   {menu.node.Title}
                   </NavLink>
-                  <ul>
+                  <ul className="navigation-dropdown">
                     {menu.node.Children.edges.map(submenu =>
-                      <li key={submenu.node.ID}>
+                      <li key={submenu.node.ID} className="nav-item navigation-item">
                         <NavLink
                           activeClassName="active"
-                          className="nav-link"
+                          className="nav-link navigation-link"
                           to={`/${menu.node.URLSegment}/${submenu.node.URLSegment}`}
                         >
                           {submenu.node.Title}
