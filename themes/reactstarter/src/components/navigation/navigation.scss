@@ -9,18 +9,28 @@
   background-color: #f8f9fa;
   z-index: 2;
   min-width: 150px;
-
   @media only screen and (min-width: 768px) {
     position: absolute;
   }
 }
 
+.navigation-dropdown-toggle {
+  &:before {
+    content:"\f078";
+  }
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+
 .navigation-item {
   position: relative;
-
-  &:hover {
-    .navigation-dropdown {
-      display: block;
+  @media only screen and (min-width: 992px) {
+    &:hover {
+      .navigation-dropdown {
+        display: block;
+      }
     }
   }
 }

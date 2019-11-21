@@ -8,6 +8,7 @@ namespace {
 	use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 	use SilverStripe\GraphQL\QueryFilter\FieldFilterInterface;
 	use GraphQL\Type\Definition\ResolveInfo;
+	use DNADesign\Elemental\Extensions\ElementalPageExtension;
 
 	class Page extends SiteTree implements ScaffoldingProvider
 	{
