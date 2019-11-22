@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown, Button } from 'react-bootstrap';
+import classnames from 'classnames';
 import { useQuery } from "@apollo/react-hooks";
 
 import GET_SITETREE from '../../graphql/queries/sitetree';
@@ -8,6 +9,7 @@ import GET_SITETREE from '../../graphql/queries/sitetree';
 import './navigation.scss';
 
 const Navigation = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const { loading, error, data } = useQuery(GET_SITETREE);
 
@@ -33,7 +35,7 @@ const Navigation = () => {
                   <NavLink
                     activeClassName="active"
                     to={"/"+menu.node.URLSegment}
-                    className="nav-link navigation-link"
+                    className={classnames('nav-link navigation-link', { 'has-children': !!menu.node.Children.edges.length })}
                   >
                   {menu.node.Title}
                   </NavLink>
@@ -41,12 +43,13 @@ const Navigation = () => {
                   {!!menu.node.Children.edges.length && (
                     <button
                       className="navigation-dropdown-toggle"
+                      onClick={() => setIsOpen(!isOpen)}
                     >
                     </button>
                   )}
 
                   {menu.node.Children.edges.length ?
-                    <ul className="navigation-dropdown">
+                    <ul className={classnames('navigation-dropdown', { open: isOpen })}>
                       {menu.node.Children.edges.map(submenu =>
                         <li key={submenu.node.ID} className="nav-item navigation-item">
                           <NavLink
