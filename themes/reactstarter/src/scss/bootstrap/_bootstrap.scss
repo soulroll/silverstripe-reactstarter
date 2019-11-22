@@ -1,18 +1,12 @@
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
 @import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-
-// Variables have to be defined before importing other parts of Bootstrap to overwrite the defaults
-// See: https://getbootstrap.com/docs/4.1/getting-started/theming/
-// > Variable overrides within the same Sass file can come before or after the default variables.
-// > However, when overriding across Scss files, your overrides must come before you import Bootstrap’s Scss files.
-@import "variables";
+@import "bootstrap/variables";
 
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/root";

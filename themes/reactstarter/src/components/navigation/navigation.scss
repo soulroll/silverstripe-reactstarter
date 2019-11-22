@@ -1,5 +1,14 @@
 .navigation-bar {
   background-color: #f8f9fa;
+ .navbar {
+    padding: 0;
+  }
+}
+
+.nav-link.has-children {
+  &:after {
+    content:'>';
+  };
 }
 
 .navigation-dropdown {
@@ -8,7 +17,7 @@
   list-style: none;
   background-color: #f8f9fa;
   z-index: 2;
-  min-width: 150px;
+  min-width: 200px;
   @media only screen and (min-width: 992px) {
     position: absolute;
   }
@@ -28,7 +37,6 @@
     display: none;
   }
 }
-
 
 .navigation-item {
   position: relative;

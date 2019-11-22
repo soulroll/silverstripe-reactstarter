@@ -23,12 +23,18 @@ const Navigation = () => {
   return (
     <div className="container-full navigation-bar">
       <div className="container">
-        <Navbar bg="light" expand="lg" className="navigation">
+        <Navbar bg="light" expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="navbar-nav">
-              <li key={"home"} className="nav-item">
-                <NavLink activeClassName="active" to={"/"} exact className="nav-link">{"Home"}</NavLink>
+              <li key={"home"} className="nav-item navigation-item">
+                <NavLink
+                  activeClassName="active"
+                  to={"/"}
+                  exact
+                  className={classnames('nav-link navigation-link')}
+                  >{"Home"}
+                </NavLink>
               </li>
               {routesToRender.map(menu =>
                 <li key={menu.node.ID} className="nav-item navigation-item">
