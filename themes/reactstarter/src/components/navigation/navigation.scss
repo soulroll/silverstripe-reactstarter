@@ -9,8 +9,14 @@
   background-color: #f8f9fa;
   z-index: 2;
   min-width: 150px;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 992px) {
     position: absolute;
+  }
+}
+
+.navigation-dropdown.open {
+  @media only screen and (max-width: 992px) {
+    display: block;
   }
 }
 

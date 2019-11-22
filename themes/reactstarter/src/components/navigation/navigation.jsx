@@ -39,7 +39,6 @@ const Navigation = () => {
                   >
                   {menu.node.Title}
                   </NavLink>
-
                   {!!menu.node.Children.edges.length && (
                     <button
                       className="navigation-dropdown-toggle"
@@ -47,7 +46,6 @@ const Navigation = () => {
                     >
                     </button>
                   )}
-
                   {menu.node.Children.edges.length ?
                     <ul className={classnames('navigation-dropdown', { open: isOpen })}>
                       {menu.node.Children.edges.map(submenu =>
