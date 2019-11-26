@@ -47,7 +47,7 @@ const Navigation = () => {
                   </NavLink>
                   {!!menu.node.Children.edges.length && (
                     <button
-                      className="navigation-dropdown-toggle"
+                      className={classnames('navigation-dropdown-toggle', { open: isOpen })}
                       onClick={() => setIsOpen(!isOpen)}
                     >
                     </button>

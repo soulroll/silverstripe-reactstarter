@@ -6,13 +6,15 @@ import './header.scss';
 const Header = () => (
   <header>
     <div className="container">
-      <div className="col">
-        <Link to={"/"}>
-          <img src={Logo} alt="Logo" />
-        </Link>
-        <div className="contact-info">
-          <li><a href="mailto:johndoe@company.co.nz">johndoe@company.co.nz</a></li>
-          <li>027 1234 567</li>
+      <div className="row">
+        <div className="col">
+          <Link to={"/"}>
+            <img src={Logo} alt="Logo" />
+          </Link>
+          <div className="contact-info">
+            <li><a href="mailto:johndoe@company.co.nz">johndoe@company.co.nz</a></li>
+            <li>027 1234 567</li>
+          </div>
         </div>
       </div>
     </div>

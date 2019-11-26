@@ -4,6 +4,8 @@ import BootstrapCard from 'components/card/card';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
+import './home.scss';
+
 const GET_SLIDES = gql`
   query readSlides {
     readHomePageCarouselItem {
@@ -65,7 +67,7 @@ const Home = () => (
         const results = data.readCard.edges
 
         return (
-          <div className="container mt-5 mb-5">
+          <div className="container mt-5 mb-5 card-background">
             <div className="row">
             {results.map(item => (
               <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4" key={item.node.ID} >

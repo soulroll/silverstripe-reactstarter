@@ -6,9 +6,13 @@ import './page.scss';
 
 const Page = (props) => (
   <div className="container">
-    <div className="col">
-      <h1>{props.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: props.content}} />
+    <div className="row">
+      <div className="col">
+        <div className="page">
+          <h1 className="heading">{props.title}</h1>
+          <div className="content" dangerouslySetInnerHTML={{__html: props.content}} />
+        </div>
+      </div>
     </div>
   </div>
 )
