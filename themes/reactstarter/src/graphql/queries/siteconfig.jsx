@@ -6,6 +6,7 @@ export const GET_SITECONFIG = gql`
       Title
       Tagline
       SiteCopyright
+      getSiteLogoLink
     }
   }
 `;

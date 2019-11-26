@@ -7,28 +7,30 @@ import './footer.scss';
 const Footer = () => (
   <footer>
     <div className="container">
-      <div className="col">
+      <div className="row">
+        <div className="col">
 
-        <Query query={GET_SITECONFIG}>
-          {({ loading, error, data }) => {
+          <Query query={GET_SITECONFIG}>
+            {({ loading, error, data }) => {
 
-            if (loading) return <div>Loading...</div>;
-            if (error) return <div>Error!</div>;
+              if (loading) return <div>Loading...</div>;
+              if (error) return <div>Error!</div>;
 
-            const siteconfigToRender = data.readSiteConfig
-            // console.log(siteconfigToRender)
+              const siteconfigToRender = data.readSiteConfig
+              // console.log(siteconfigToRender)
 
-            return (
-              <div>
-                {siteconfigToRender.map(boomer => (
-                  <p key={boomer.Title}>&copy; Company {boomer.Title}</p>
-                ))}
-              </div>
-            );
+              return (
+                <div>
+                  {siteconfigToRender.map(boomer => (
+                    <p key={boomer.Title}>&copy; Company {boomer.Title}</p>
+                  ))}
+                </div>
+              );
 
-          }}
-        </Query>
+            }}
+          </Query>
 
+        </div>
       </div>
     </div>
   </footer>

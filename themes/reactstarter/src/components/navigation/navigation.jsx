@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown, Button } from 'react-bootstrap';
-import classnames from 'classnames';
 import { useQuery } from "@apollo/react-hooks";
+import classnames from 'classnames';
 
 import GET_SITETREE from '../../graphql/queries/sitetree';
 
