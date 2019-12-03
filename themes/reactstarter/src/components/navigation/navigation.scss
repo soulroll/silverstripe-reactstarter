@@ -5,6 +5,15 @@
   }
 }
 
+.navbar-toggler {
+  margin: 5px 0 5px 0;
+}
+
+.navbar .navbar-toggler {
+  padding: 4px 5px 4px 5px;
+  border-radius: 0;
+}
+
 .nav-link.has-children {
   @media only screen and (min-width: 992px) {
     &:after {

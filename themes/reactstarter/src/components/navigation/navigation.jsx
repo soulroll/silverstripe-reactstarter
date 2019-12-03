@@ -3,13 +3,13 @@ import { NavLink, Route, useRouteMatch, useParams } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown, Button } from 'react-bootstrap';
 import { useQuery } from "@apollo/react-hooks";
 import classnames from 'classnames';
+import Submenu from './submenu/submenu';
 
 import GET_SITETREE from '../../graphql/queries/sitetree';
 
 import './navigation.scss';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
 
   const { loading, error, data } = useQuery(GET_SITETREE);
 
@@ -17,8 +17,6 @@ const Navigation = () => {
   if (error) return <div>Error!</div>;
 
   const routesToRender = data.readSiteTrees.edges
-  console.log(routesToRender)
-  console.log('>>', routesToRender)
 
   return (
     <div className="container-full navigation-bar">
@@ -36,6 +34,7 @@ const Navigation = () => {
                   >{"Home"}
                 </NavLink>
               </li>
+
               {routesToRender.map(menu =>
                 <li key={menu.node.ID} className="nav-item navigation-item">
                   <NavLink
@@ -44,29 +43,17 @@ const Navigation = () => {
                     className={classnames('nav-link navigation-link', { 'has-children': !!menu.node.Children.edges.length })}
                   >
                   {menu.node.Title}
+
                   </NavLink>
-                  {!!menu.node.Children.edges.length && (
-                    <button
-                      className={classnames('navigation-dropdown-toggle', { open: isOpen })}
-                      onClick={() => setIsOpen(!isOpen)}
-                    >
-                    </button>
-                  )}
+
+
                   {menu.node.Children.edges.length ?
-                    <ul className={classnames('navigation-dropdown', { open: isOpen })}>
-                      {menu.node.Children.edges.map(submenu =>
-                        <li key={submenu.node.ID} className="nav-item navigation-item">
-                          <NavLink
-                            activeClassName="active"
-                            className="nav-link navigation-link"
-                            to={`/${menu.node.URLSegment}/${submenu.node.URLSegment}`}
-                          >
-                            {submenu.node.Title}
-                          </NavLink>
-                        </li>
-                      )}
-                    </ul>
+                  <Submenu menu={menu} />
                   : null }
+
+
+
+
                 </li>
               )}
             </ul>
