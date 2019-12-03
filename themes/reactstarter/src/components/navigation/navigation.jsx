@@ -34,7 +34,6 @@ const Navigation = () => {
                   >{"Home"}
                 </NavLink>
               </li>
-
               {routesToRender.map(menu =>
                 <li key={menu.node.ID} className="nav-item navigation-item">
                   <NavLink
@@ -43,17 +42,10 @@ const Navigation = () => {
                     className={classnames('nav-link navigation-link', { 'has-children': !!menu.node.Children.edges.length })}
                   >
                   {menu.node.Title}
-
                   </NavLink>
-
-
                   {menu.node.Children.edges.length ?
-                  <Submenu menu={menu} />
+                    <Submenu menu={menu} />
                   : null }
-
-
-
-
                 </li>
               )}
             </ul>

@@ -1,17 +1,28 @@
 .navigation-bar {
   background-color: #f8f9fa;
+  .container {
+    @media only screen and (max-width: 576px) {
+      padding: 0;
+    }
+  }
  .navbar {
     padding: 0;
   }
 }
 
 .navbar-toggler {
-  margin: 5px 0 5px 0;
+  @media only screen and (min-width: 576px) {
+    margin: 5px 0 5px 0;
+  }
 }
 
 .navbar .navbar-toggler {
-  padding: 4px 5px 4px 5px;
   border-radius: 0;
+  @media only screen and (max-width: 576px) {
+    border: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
 .nav-link.has-children {
@@ -30,11 +41,11 @@
 
 .navigation-dropdown {
   display: none;
-  padding-left: 0;
   list-style: none;
   background-color: #f8f9fa;
   z-index: 2;
   min-width: 200px;
+  padding-left: 0;
   @media only screen and (min-width: 992px) {
     position: absolute;
   }
@@ -47,7 +58,7 @@
 }
 
 .navigation-dropdown-toggle {
-  padding: 10px 16px 10px 16px;
+  padding: 13px 16px 13px 16px;
   position: absolute;
   right: 0;
   top: 0;
@@ -79,5 +90,17 @@
         display: block;
       }
     }
+  }
+  @media only screen and (max-width: 576px) {
+    .navigation-link {
+      border-top: 1px solid #ddd;
+    }
+  }
+}
+
+.navbar-nav .nav-item .nav-link {
+  @media only screen and (max-width: 576px) {
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
