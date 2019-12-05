@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BootstrapCarousel from 'components/carousel/carousel';
 import BootstrapCard from 'components/card/card';
+import Loader from 'components/loader/loader';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
@@ -43,11 +44,10 @@ const Home = () => (
     <Query query={GET_SLIDES}>
       {({ loading, error, data }) => {
 
-        if (loading) return <div>Loading...</div>;
-        if (error) return <div>Error!</div>;
+        if (loading) return <div><Loader message={'Loading...'} /></div>;
+        if (error) return <div><Loader message={'Error!'} /></div>;
 
         const results = data.readHomePageCarouselItem.edges
-        // console.log(results)
 
         return (
           <div>
@@ -61,8 +61,8 @@ const Home = () => (
     <Query query={GET_CARDS}>
       {({ loading, error, data }) => {
 
-        if (loading) return <div>Loading...</div>;
-        if (error) return <div>Error!</div>;
+        if (loading) return <div><Loader message={'Loading...'} /></div>;
+        if (error) return <div><Loader message={'Error!'} /></div>;
 
         const results = data.readCard.edges
 

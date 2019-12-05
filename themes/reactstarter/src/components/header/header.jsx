@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Logo from '../../assets/images/logo.png'; // Tell Webpack this JS file uses this image
+import Loader from 'components/loader/loader';
 import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/react-hooks";
 
@@ -11,8 +12,8 @@ const Header = () => {
 
   const { loading, error, data } = useQuery(GET_SITECONFIG);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error!</div>;
+  if (loading) return <div><Loader message={'Loading...'} /></div>;
+  if (error) return <div><Loader message={'Error!'} /></div>;
 
   const siteconfigToRender = data.readSiteConfig
 
