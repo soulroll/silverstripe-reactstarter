@@ -55,6 +55,13 @@
   @media only screen and (max-width: 992px) {
     display: block;
   }
+  .navigation-item {
+    .navigation-link {
+      @media only screen and (max-width: 992px) {
+        padding-left: 30px;
+      }
+    }
+  }
 }
 
 .navigation-dropdown-toggle {
@@ -74,7 +81,7 @@
   @media only screen and (min-width: 992px) {
     display: none;
   }
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 575px) {
     border-left: 1px solid #ddd;
   }
 }
@@ -94,7 +101,7 @@
       }
     }
   }
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 575px) {
     .navigation-link {
       border-top: 1px solid #ddd;
     }
