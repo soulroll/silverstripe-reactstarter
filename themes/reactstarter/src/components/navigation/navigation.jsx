@@ -25,21 +25,21 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto hidden-sm-up float-xs-right"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="navbar-nav">
-              <li key={"home"} className="nav-item navigation-item">
+              <li key={"home"} className="nav-item">
                 <NavLink
                   activeClassName="active"
                   to={"/"}
                   exact
-                  className={classnames('nav-link navigation-link')}
+                  className={classnames('nav-link')}
                   >{"Home"}
                 </NavLink>
               </li>
               {routesToRender.map(menu =>
-                <li key={menu.node.ID} className="nav-item navigation-item">
+                <li key={menu.node.ID} className="nav-item">
                   <NavLink
                     activeClassName="active"
                     to={"/"+menu.node.URLSegment}
-                    className={classnames('nav-link navigation-link', { 'has-children': !!menu.node.Children.edges.length })}
+                    className={classnames('nav-link', { 'has-children': !!menu.node.Children.edges.length })}
                   >
                   {menu.node.Title}
                   </NavLink>
