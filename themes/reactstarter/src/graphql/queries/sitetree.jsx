@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 export const GET_SITETREE = gql`
 
@@ -28,6 +28,7 @@ export const GET_SITETREE = gql`
       }
     }
   }
+
 `;
 
 export default GET_SITETREE;

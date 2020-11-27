@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './components.scss';
+import React from "react";
+import "./components.scss";
 
 const Components = () => (
   <div className="container">

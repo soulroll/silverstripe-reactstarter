@@ -1,7 +1,4 @@
-import React, {Component} from 'react';
-import { Query } from 'react-apollo';
-import { gql } from 'apollo-boost';
-
+import React from 'react';
 import './page.scss';
 
 const Page = (props) => (

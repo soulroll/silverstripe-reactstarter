@@ -9,7 +9,7 @@ const PROXY_URL = 'silverstripe-reactstarter.davidm.wgtn.cat-it.co.nz';
 module.exports = {
 
   entry: [ // webpack entry point. Module to start building dependency graph
-    './src/index.jsx',
+    './src/app.jsx',
     './src/scss/main.scss'
   ],
 

@@ -8,7 +8,7 @@
   </head>
   <body>
     $Layout
-    <div id="root"></div>
+    <div id="app"></div>
     <% require javascript($resourceURL('themes/reactstarter/build/js/bundle.js')) %>
   </body>
 </html>

@@ -1,6 +1,7 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 export const GET_SITECONFIG = gql`
+
   query readSiteConfig {
     readSiteConfig {
       Title
@@ -9,6 +10,7 @@ export const GET_SITECONFIG = gql`
       getSiteLogoLink
     }
   }
+
 `;
 
 export default GET_SITECONFIG;
